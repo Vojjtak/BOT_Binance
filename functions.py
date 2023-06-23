@@ -63,6 +63,7 @@ def sell(df, current_price):
     """Sell order if a price will be above 110% of open-price"""
     open_price = (df.iloc[199]["Open"])
     percentage = float(open_price)/100
+    #Missing navigation to specific order
     if current_price >= percentage*110:
         client.create_test_order(symbol=symbol, side=SIDE_SELL, type=ORDER_TYPE_MARKET, quantity=quantity)
         print(f"You sold {quantity} of {symbol}")
