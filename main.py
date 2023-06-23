@@ -1,36 +1,21 @@
 from binance import Client
 from api import API, SCR_KEY
 import functions as fc
-import customtkinter
+import customtkinter as ctk
+import frontend_functions as ff
 
-customtkinter.set_appearance_mode("dark")
-customtkinter.set_default_color_theme("dark-blue")
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("dark-blue")
 
-root = customtkinter.CTk()
-root.geometry("500x350")
+app = ctk.CTk()
+app.geometry("500x350")
+app.title("Vojjtak Binance Bot")
 
-def login():
-    print("Test")
+ff.frame1(app)
 
-frame = customtkinter.CTkFrame(master=root)
-frame.pack(pady=20, padx=60, fill="both", expand=True)
 
-label = customtkinter.CTkLabel(master=frame, text="Login system")
-label.pack(pady=12, padx=10)
+app.mainloop()
 
-entry1 = customtkinter.CTkEntry(master=frame, placeholder_text="Username")
-entry1.pack(pady=12, padx=10)
-
-entry2 = customtkinter.CTkEntry(master=frame, placeholder_text="Password", show="*")
-entry2.pack(pady=12, padx=10)
-
-button = customtkinter.CTkButton(master=frame, text="Login", command=login)
-button.pack(pady=12, padx=10)
-
-checkbox = customtkinter.CTkCheckBox(master=frame, text="Remember me")
-checkbox.pack(pady=12, padx=10)
-
-root.mainloop()
 
 # Base
 client = Client(API, SCR_KEY)

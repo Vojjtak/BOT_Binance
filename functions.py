@@ -7,7 +7,7 @@ import requests
 
 symbol = "DOGEUSDT"
 quantity = 100
-
+client = Client(API, SCR_KEY)
 def getdata(symbol):
     """Get data from binance
     Choose symbol, timeframe"""
@@ -60,7 +60,7 @@ def current_price(symbol):
 
 
 def sell(df, current_price):
-    """Make a sell order if a price will be above 110% of open-price"""
+    """Sell order if a price will be above 110% of open-price"""
     open_price = (df.iloc[199]["Open"])
     percentage = float(open_price)/100
     if current_price >= percentage*110:
